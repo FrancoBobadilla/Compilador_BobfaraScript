@@ -3,6 +3,8 @@
 
 #define tipo bool
 
+#include <fstream>
+
 class Analizador{
 private:
 		
@@ -12,7 +14,7 @@ private:
 	
 	tipo sintactico();	
 	
-	// tipo semantico();
+	tipo semantico();
 	
 	
 	tipo Programa();
