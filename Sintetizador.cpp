@@ -1,10 +1,15 @@
-//
-// Created by FrancoBobadilla on 11/6/2018.
-//
-
 #include "Sintetizador.h"
-#include <string>
-#include "Pila.h"
+
+Sintetizador::Sintetizador(){
+	
+}
+
+char *Sintetizador::sintetizar(char *codigoFuente) {
+	this->codigoFuente = codigoFuente;
+	return codigoFuente;
+	//ACORDARSE DE METER UN char(0) AL FINAL DE LA CADENA
+}
+
 /*
 string postfija(string e) {
     string r; // r = "";

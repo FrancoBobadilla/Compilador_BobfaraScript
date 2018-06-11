@@ -1,16 +1,12 @@
-#ifndef UNTITLED_ANALIZADOR_H
-#define UNTITLED_ANALIZADOR_H
-
-#include <fstream>
+#ifndef ANALIZADOR_H
+#define ANALIZADOR_H
 
 #define tipo long int
 
-class Analizador {
+class Analizador{
 private:
 	
-    int *codigoFuente;
-
-    tipo tamanio;
+    char *codigoFuente;
 
 
     bool lexico();
@@ -51,10 +47,10 @@ private:
 
 public:
 	
-    Analizador(FILE *);
+    Analizador();
 
-    bool analizar();
+    bool analizar(char *);
 
 };
 
-#endif //UNTITLED_ANALIZADOR_H
+#endif //ANALIZADOR_H

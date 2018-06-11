@@ -9,7 +9,7 @@ private:
 
 public:
     Nodo(T dato) : dato(dato) {
-        next = nullptr;
+        next = 0;
     }
 
     Nodo(T dato, Nodo<T> *next) : dato(dato), next(next) {}

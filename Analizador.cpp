@@ -1,32 +1,18 @@
 #include "Analizador.h"
 
-
-Analizador::Analizador(FILE *A) {
-    if (A == NULL)
-        throw 1;
-    fseek(A, 0, SEEK_END);
-    this->tamanio = ftell(A);
-    rewind(A);
-    codigoFuente = new int[tamanio];
-    tipo i = 0;
-    int c;
-    while ((c = fgetc(A)) != EOF)
-        if (c > 32)
-            codigoFuente[i++] = c;
-    rewind(A);
-    this->tamanio = i;
+Analizador::Analizador(){
+	
 }
 
-
-bool Analizador::analizar() {
+bool Analizador::analizar(char *codigoFuente) {
+	this->codigoFuente = codigoFuente;
     return lexico() && sintactico() && semantico();
 }
 
-
 bool Analizador::lexico() {
-    int i, c;
-    for (i = 0; i < tamanio; i++) {
-        c = this->codigoFuente[i];
+    int i;
+	char c;
+    for (i = 0; c = this->codigoFuente[i]; i++) {
         if ((c < 'a' || c > 'z')
             && (c < '0' || c > '9')
             && c != '+' && c != '-' && c != '*' && c != '/' && c != '%'
@@ -41,15 +27,12 @@ bool Analizador::lexico() {
 }
 
 bool Analizador::sintactico() {
-	if(Programa(0) > 0)
-		return true;
-	return false;
+	return Programa(0);
 }
 
 bool Analizador::semantico() {
     return true;
 }
-
 
 tipo Analizador::Programa(tipo posicion) {
 	if(codigoFuente[posicion++] != 'M')	//se evalua si "da error"
@@ -59,6 +42,8 @@ tipo Analizador::Programa(tipo posicion) {
 	if(!(posicion = bloque(posicion)))
 		return 0;
 	if(codigoFuente[posicion++] != '}')
+		return 0;
+	if(codigoFuente[posicion] != 0)
 		return 0;
     return posicion;
 }

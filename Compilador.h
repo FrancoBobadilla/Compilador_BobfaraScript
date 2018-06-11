@@ -7,6 +7,7 @@
 
 #include "Analizador.cpp"
 #include "Sintetizador.cpp"
+
 #include <fstream>
 
 class Compilador {
@@ -15,16 +16,10 @@ private:
 
     Sintetizador S;
 
-    int *codigoFuente;
-    tipo tamanioFuente;
-
-    int *codigoCompilado;
-    tipo tamanioCompilado;
-
 public:
-    Compilador(FILE *);
+    Compilador();
 
-    FILE *compilar();
+    FILE *compilar(FILE *);
 
 };
 

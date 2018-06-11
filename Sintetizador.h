@@ -1,9 +1,5 @@
-//
-// Created by FrancoBobadilla on 11/6/2018.
-//
-
-#ifndef UNTITLED_SINTETIZADOR_H
-#define UNTITLED_SINTETIZADOR_H
+#ifndef SINTETIZADOR_H
+#define SINTETIZADOR_H
 
 #define tipo long int
 
@@ -11,9 +7,16 @@
 
 class Sintetizador {
 private:
-
+	
+	char *codigoFuente;
+    
+    
 public:
+	
+	Sintetizador ();
+	
+	char *sintetizar(char *);
 };
 
 
-#endif //UNTITLED_SINTETIZADOR_H
+#endif //SINTETIZADOR_H
