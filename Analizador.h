@@ -1,60 +1,60 @@
 #ifndef UNTITLED_ANALIZADOR_H
 #define UNTITLED_ANALIZADOR_H
 
-#define tipo bool
-
 #include <fstream>
+
+#define tipo long int
 
 class Analizador {
 private:
+	
+    int *codigoFuente;
 
-    FILE *A;
-
-    tipo lexico();
-
-    tipo sintactico();
-
-    tipo semantico();
+    tipo tamanio;
 
 
-    tipo Programa();
+    bool lexico();
 
-    tipo bloque();
+    bool sintactico();
 
-    tipo otra_sentencia();
-
-    tipo sentencia();
-
-    tipo asignacion();
-
-    tipo expresion();
-
-    tipo mas_terminos();
-
-    tipo termino();
-
-    tipo mas_factores();
-
-    tipo factor();
-
-    tipo lectura();
-
-    tipo escritura();
-
-    tipo variable();
-
-    tipo constante();
-
-    tipo vacio();
+    bool semantico();
 
 
-    bool noTerminal(int, int);
+    tipo Programa(tipo);
+
+    tipo bloque(tipo);
+
+    tipo otra_sentencia(tipo);
+
+    tipo sentencia(tipo);
+
+    tipo asignacion(tipo);
+
+    tipo expresion(tipo);
+
+    tipo mas_terminos(tipo);
+
+    tipo termino(tipo);
+
+    tipo mas_factores(tipo);
+
+    tipo factor(tipo);
+
+    tipo lectura(tipo);
+
+    tipo escritura(tipo);
+
+    tipo variable(tipo);
+
+    tipo constante(tipo);
+
 
 public:
+	
     Analizador(FILE *);
 
-    tipo analizar();
+    bool analizar();
 
 };
 
-#endif
+#endif //UNTITLED_ANALIZADOR_H
