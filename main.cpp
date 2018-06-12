@@ -1,18 +1,19 @@
 #include <iostream>
 #include <fstream>
-#include "Analizador.cpp"
+#include "Compilador.cpp"
 
 using namespace std;
 
 int main() {
-	/*
-	int datos[5]={'a','b',0,'d','e'};
-	for(int i = 0; i<=5;i++)
-		cout<<int(datos[i])<<endl;
-	FILE *doc = fopen("CO.txt", "w");
-	fputs (datos, doc);
+
+    /*
+    int datos[5]={'a','b',0,'d','e'};
+    for(int i = 0; i<=5;i++)
+        cout<<int(datos[i])<<endl;
+    FILE *doc = fopen("CO.txt", "w");
+    fputs (datos, doc);
     fclose (doc);/**/
-    
+
     /*
     FILE *doc = fopen("CF.txt", "r");
     fseek(doc, 0, SEEK_END);
@@ -29,6 +30,6 @@ int main() {
     Analizador A;
     if (!A.analizar(cod)) cout << "DES";
     cout << "APROBADO" << endl << endl;/**/
-    
+
     system("pause");
 }

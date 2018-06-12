@@ -10,6 +10,9 @@ private:
 	
 	char *codigoFuente;
     
+    int prioridad(char);
+    
+    char *postfija(char *, tipo);
     
 public:
 	

@@ -1,10 +1,11 @@
-#include "Compilador.h"
+#include "Analizador.cpp"
+#include "Sintetizador.cpp"
 
-Compilador::Compilador(){
-	
-}
+#include <fstream>
 
-FILE *Compilador::compilar(FILE *documento){
+FILE *compilar(FILE *documento){
+	Analizador A;
+    Sintetizador S;
 	fseek(documento, 0, SEEK_END);
     char codigoFuente[ftell(documento) + 1];
     rewind(documento);
@@ -13,11 +14,11 @@ FILE *Compilador::compilar(FILE *documento){
     while ((caracter = fgetc(documento)) != EOF)
     	if (caracter > 32)
         	codigoFuente[i++] = caracter;
-    codigoFuente[i + 1] = 0;
+    codigoFuente[i] = 0;
     rewind(documento);
-    if(!this->A.analizar(codigoFuente))
+    if(!A.analizar(codigoFuente))
     	return NULL;
-    FILE *salida;
+    FILE *salida = NULL;
     fputs (S.sintetizar(codigoFuente), salida);
     return salida;
 }
