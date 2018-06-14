@@ -9,10 +9,16 @@ class Sintetizador {
 private:
 	
 	char *codigoFuente;
+	
+	char *codigoCompilado;
+    
+    tipo finComp;
     
     int prioridad(char);
     
     char *postfija(char *, tipo);
+    
+    void agregar(char);
     
 public:
 	
