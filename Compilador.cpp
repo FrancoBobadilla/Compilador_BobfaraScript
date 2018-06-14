@@ -1,4 +1,7 @@
 #include "Compilador.h"
+//#include <iostream>
+
+//using namespace std;
 
 Compilador::Compilador() {
 
@@ -13,11 +16,14 @@ bool Compilador::compilar(FILE *documentoFuente, FILE *documentoCompilado) {
     this->finComp = 0;
     bool salida = false;
     rewind(documentoFuente);
+    //cout<<"DOCUMENTO LEIDO"<<endl<<endl;
     tipo i = 0;
     char caracter;
     while ((caracter = fgetc(documentoFuente)) != EOF)
+        //cout<<caracter;
         if (caracter > 32)
             this->codigoFuente[i++] = caracter;
+    //cout<<endl<<endl<<endl;
     this->codigoFuente[i] = 0;
     rewind(documentoFuente);
     if (analizar()) {
@@ -205,6 +211,7 @@ tipo Compilador::constante(tipo posicion) {
 }
 
 char *Compilador::sintetizar() {
+    //cout<<"CODIGO FUENTE\n\n<<codigoFuente;
     tipo i, j, k;
     char pusha[] = {"PUSHA "};
     char code[] = {".CODE\n"};
@@ -238,6 +245,7 @@ char *Compilador::sintetizar() {
         }
 
     }
+    //cout<<"CODIGO INTERMEDIO\n\n<<codigoFuente;
     i = 0;
     while (this->codigoFuente[i]) {
         switch (this->codigoFuente[i]) {
@@ -303,6 +311,7 @@ char *Compilador::sintetizar() {
         }
     }
     agregarComp(end);
+    //cout<<"CODIGO COMPILADO\n\n<<codigoCompilado;
     return this->codigoCompilado;
 }
 
