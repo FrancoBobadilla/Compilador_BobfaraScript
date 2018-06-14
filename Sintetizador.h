@@ -7,24 +7,24 @@ Compilador
 
 class Sintetizador {
 private:
-	
-	char *codigoFuente;
-	
-	char *codigoCompilado;
-    
+
+    char *codigoFuente;
+
+    char *codigoCompilado;
+
     tipo finComp;
-    
+
     int prioridad(char);
-    
+
     char *postfija(char *, tipo);
-    
+
     void agregar(char);
-    
+
 public:
-	
-	Sintetizador ();
-	
-	char *sintetizar(char *);
+
+    Sintetizador();
+
+    char *sintetizar(char *);
 };
 
 

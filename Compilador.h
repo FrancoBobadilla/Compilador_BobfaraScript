@@ -1,28 +1,30 @@
 #ifndef COMPILADOR_H
 #define COMPILADOR_H
+
 #include <fstream>
 #include "Pila.h"
+
 #define tipo long int
 
 class Compilador {
 private:
-	
-	char *codigoFuente;
-	
-	tipo *posicionesDocumentoFuente;
-	
-	char *codigoCompilado;
-	
-	tipo finComp;
-	
-	bool analizar();
-	
-	bool lexico();
+
+    char *codigoFuente;
+
+    tipo *posicionesDocumentoFuente;
+
+    char *codigoCompilado;
+
+    tipo finComp;
+
+    bool analizar();
+
+    bool lexico();
 
     bool sintactico();
 
     bool semantico();
-    
+
     tipo Programa(tipo);
 
     tipo bloque(tipo);
@@ -50,26 +52,26 @@ private:
     tipo variable(tipo);
 
     tipo constante(tipo);
-    
+
     char *sintetizar();
-    
+
     int prioridad(char);
-    
+
     char *postfija(char *, tipo);
-    
+
     void agregarComp(char);
-    
+
     void agregarComp(char *);
-    
+
     void agregarLog(char);
-    
+
     void agregarLog(char *);
-    
+
 public:
-	
-	Compilador ();
-	
-	bool compilar(FILE *, FILE *);
+
+    Compilador();
+
+    bool compilar(FILE *, FILE *);
 };
 
 

@@ -3,9 +3,9 @@
 
 #define tipo long int
 
-class Analizador{
+class Analizador {
 private:
-	
+
     char *codigoFuente;
 
 
@@ -46,7 +46,7 @@ private:
 
 
 public:
-	
+
     Analizador();
 
     bool analizar(char *);
