@@ -3,11 +3,12 @@
 using namespace std;
 
 Sintetizador::Sintetizador() {
-	finComp = 0;
-	codigoCompilado = new char[9]; //.CODE\0END (el programa mas pequeño posible)
+	
 }
 
 char *Sintetizador::sintetizar(char *codigoFuente) {
+	finComp = 0;
+	codigoCompilado = new char[9]; //.CODE\nEND (el programa mas pequeño posible)
     this->codigoFuente = codigoFuente;
     tipo i, j, k;
     
@@ -28,6 +29,7 @@ char *Sintetizador::sintetizar(char *codigoFuente) {
     			else
     				codigoFuente[i + k] = aux[k];
 			}
+			delete aux;
 		}
 		
 	}
@@ -131,17 +133,16 @@ char *Sintetizador::sintetizar(char *codigoFuente) {
     							agregar('A');
     							agregar('D');
     							agregar('\n');
-							}else{
-								if('0' <= codigoFuente[j] && codigoFuente[j] <= '9'){
-									agregar('P');
-    								agregar('U');
-    								agregar('S');
-    								agregar('H');
-    								agregar('C');
-    								agregar(' ');
-    								agregar(codigoFuente[j]);
-    								agregar('\n');
-								}
+    						}
+							if('0' <= codigoFuente[j] && codigoFuente[j] <= '9'){
+								agregar('P');
+    							agregar('U');
+    							agregar('S');
+    							agregar('H');
+    							agregar('C');
+    							agregar(' ');
+    							agregar(codigoFuente[j]);
+    							agregar('\n');
 							}
 							break;
 					}

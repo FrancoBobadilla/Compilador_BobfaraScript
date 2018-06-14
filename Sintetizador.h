@@ -1,6 +1,6 @@
 #ifndef SINTETIZADOR_H
 #define SINTETIZADOR_H
-
+Compilador
 #define tipo long int
 
 #include "Pila.h"

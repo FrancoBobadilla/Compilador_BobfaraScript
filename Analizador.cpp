@@ -20,6 +20,7 @@ bool Analizador::lexico() {
             && c != '(' && c != ')'
             && c != ';'
             && c != '{' && c != '}'
+            
             && c != 'M' && c != 'R' && c != 'W')
             return false;
     }
